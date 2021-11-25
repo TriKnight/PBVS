@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="move_group_python_basic" pkg="dense_grasp" type="python_sendgoal.py" respawn="false" output="screen">
+  </node>
+
+</launch>
