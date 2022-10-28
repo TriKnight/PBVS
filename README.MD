@@ -27,29 +27,38 @@ Program --> URCap --> External Control
 Robot Program 
         |--> Control by <Your_PC_IP>
 ```
-Pressing the Play to connect the robot to ROS-PC
+
 ### 3.2 ROS PC
+Setup your PC IP --> Static
+
+```Ros PC IP = 192.168.1.10 | NetMask: 255.255.255.0```
+
 __Bringup the robot control driver__
 
  Don't forget to source the correct setup shell files and use a new terminal for each command! 
+ 
 ```
 roslaunch ur_robot_driver ur10e_bringup.launch robot_ip:=<Your_Robot_IP> 
 ```
-Ex: ```roslaunch ur_robot_driver ur10e_bringup.launch robot_ip:=192.168.1.101 ```
+Ex: 
+```
+roslaunch ur_robot_driver ur10e_bringup.launch robot_ip:=192.168.1.101 
+```
 
  When you got the command ```Robot connected to reverse interface. Ready to receive control commands. ```. That mean your robot is already connected with your ROS-PC. Congratuation! 
 
+__Pressing the Play on Techpendant to connect the robot to ROS-PC__
 
 __Running the moveit interface__
 ```
-roslaunch ur10e_moveit_config ur10e_moveit_planning_execution.launch limited:=true
+roslaunch ur10e_moveit_config ur10e_moveit_planning_execution.launch limited:=true 
 ```
 When you got the command ``` You can start planning now! ```. That the planning algorithms has been started.
 
 - Nextstep running the Moveit! config with RViz view
-```
-roslaunch dense_grasp ur10_rviz.launch
-```
+```roslaunch dense_grasp ur10_rviz.launch```
+
+
 __Usage with Gazebo Simulation__  
 There are launch files available to bringup a simulated robot - either UR5e or UR10e.  In the following the commands for the UR10e are given. For the UR5, simply replace the prefix accordingly.  
 
@@ -89,7 +98,45 @@ __Test inverse kinematic robotics arm__
  rosrun dense_grasp move_group_tutorial_py.py
  ```
 
+__Test Velocity Joint Trajectories Control (Not working)__
+```
+ roslaunch dense_grasp ur10e_vel_control.launch
+ roslaunch ur10e_moveit_config ur10e_moveit_planning_execution.launch sim:=true
+ roslaunch dense_grasp ur10_rviz.launch
+ rosrun dense_grasp vel_joint_traj.py 
+ ```
+# Velocity controller 
+Switch the position controller to velocity controller
 
+```
+rosservice call /controller_manager/switch_controller "start_controllers: ['joint_group_vel_controller']
+stop_controllers: ['scaled_pos_joint_traj_controller']
+strictness: 2
+start_asap: false
+timeout: 0.0"
+```
+Test the velocity controller by publish 1 time message. The joint following list "shoulder_pan_joint > shoulder_lift_joint > elbow_joint > wrist_1_joint > wrist_2_joint > wrist_3_joint"
+
+Testing the wrist 3 joint rotation
+```
+rostopic pub -1 /joint_group_vel_controller/command std_msgs/Float64MultiArray "layout: 
+  dim:
+  - label: ''
+    size: 0
+    stride: 0
+  data_offset: 0
+data: [0.0, 0.0,0.0,0.0,0.0,0.001]"
+```
+
+```
+rostopic pub -1 /joint_group_vel_controller/command std_msgs/Float64MultiArray "layout: 
+  dim:
+  - label: ''
+    size: 0
+    stride: 0
+  data_offset: 0
+data: [0.0, 0.0,0.0,0.0,0.0,0.0]"
+```
 ## Troubleshooting
 ```rostopic list```
 ```
@@ -115,4 +162,21 @@ joint_names: [elbow_joint, shoulder_lift_joint, shoulder_pan_joint, wrist_1_join
 positions: [0, -pi/2, 0, -p/2, 0, 0]
 
 ```
+__1. Connection Error between UR and ROS_PC__
 
+If you get Connection Error: `
+The connection to the remote PC at 192.168.1.10:50002 could not be established. Reason: No route to host.
+`
+1. In PolyScope/ UR Teach Pendant. Go to Installation/FeildBus --> **Disable** all Modbus, Ethernet/IP, ProfiNet. When you disable Ethernet/IP the On-Robot Gripper can not work, that mean after you run the `roslaunch ur_bringup` you can enable the Ethernet/IP to communicate with Robot again.
+2. Please go to the installation and config another IP address in UR and PC setting, ex: 192.168.1.11:50002
+
+__Error__
+
+When we run the python code
+```
+rosrun dense_grasp move_group_tutorial.py 
+```
+```
+ImportError: dynamic module does not define module export function (PyInit__moveit_roscpp_initializer)
+```
+Solve: ```conda deactivate```
