@@ -258,9 +258,9 @@ Visualization Manager:
           Value: false
         tool0:
           Value: false
+        tool0_controller:
+          Value: true
         upper_arm_link:
-          Value: false
-        world:
           Value: false
         wrist_1_link:
           Value: false
@@ -274,20 +274,20 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        world:
-          base_link:
-            base:
+        base_link:
+          base:
+            tool0_controller:
               {}
-            base_link_inertia:
-              shoulder_link:
-                upper_arm_link:
-                  forearm_link:
-                    wrist_1_link:
-                      wrist_2_link:
-                        wrist_3_link:
-                          flange:
-                            tool0:
-                              {}
+          base_link_inertia:
+            shoulder_link:
+              upper_arm_link:
+                forearm_link:
+                  wrist_1_link:
+                    wrist_2_link:
+                      wrist_3_link:
+                        flange:
+                          tool0:
+                            {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -318,25 +318,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.742043972015381
+      Distance: 3.130678415298462
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.22116562724113464
-        Y: -0.21316610276699066
-        Z: 0.06825248897075653
+        X: 0.3485942780971527
+        Y: -0.27574265003204346
+        Z: 0.17098590731620789
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5547966957092285
+      Pitch: 0.6997966170310974
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.6803910732269287
+      Yaw: 1.6953920125961304
     Saved: ~
 Window Geometry:
   Displays:

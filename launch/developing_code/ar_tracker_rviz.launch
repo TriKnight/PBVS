@@ -1,0 +1,40 @@
+<launch>
+
+  <arg name="open_rviz"           default="true"/>
+  <arg name="marker_frame_id"     default="world"/>
+  <arg name="user_marker_size"	  default="5.0"/>
+
+  <arg name="camera_model" default="realsense_d435" doc="model type realsense_d435"/>
+  <arg name="camera_namespace" default="camera"/>
+  <arg name="rgb_camera_info_url"   default="package://open_manipulator_camera/camera_info/$(arg camera_model).yaml" />
+  <arg name="depth_camera_info_url" default="" />
+
+
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+
+<group if="$(eval camera_model == 'realsense_d435')">
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="camera"                value="$(arg camera_namespace)"/>
+    <arg name="enable_pointcloud"     value="false" />
+    </include>
+
+<node pkg="tf" type="static_transform_publisher" name="camera_frame_to_realsense_frame"
+    args="0.070 0 0.052 0 0 0 world camera_link 10" />
+
+    <include file="$(find ar_track_alvar)/launch/pr2_indiv_no_kinect.launch">
+    <arg name="marker_size" value="$(arg user_marker_size)" />
+    <arg name="max_new_marker_error" value="0.08" />
+    <arg name="max_track_error" value="0.2" />
+    <arg name="cam_image_topic" value="$(arg camera_namespace)/color/image_raw" />
+    <arg name="cam_info_topic" value="$(arg camera_namespace)/color/camera_info" />
+    <arg name="output_frame" value="$(arg marker_frame_id)" />
+    </include>
+</group>
+
+
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+      args="-d $(find dense_grasp)/rviz/ar_marker.rviz"/>
+  </group>
+</launch>

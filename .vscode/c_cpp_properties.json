@@ -1,0 +1,55 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/robotlab/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/ackermann_steering_controller/include/**",
+        "/home/robotlab/catkin_ws/src/Perception-Driven_Manipulation/collision_avoidance_pick_and_place/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/combined_robot_hw/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/combined_robot_hw_tests/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/controller_interface/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/controller_manager/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/controller_manager_tests/include/**",
+        "/home/robotlab/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/include/**",
+        "/home/robotlab/catkin_ws/src/dense_grasp/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/diff_drive_controller/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/effort_controllers/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/force_torque_sensor_controller/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/forward_command_controller/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/four_wheel_steering_controller/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/gripper_action_controller/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/hardware_interface/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/imu_sensor_controller/include/**",
+        "/home/robotlab/catkin_ws/src/isaac_bridge/include/**",
+        "/home/robotlab/catkin_ws/src/kinova-ros/kinova_moveit/inverse_kinematics_plugins/ikfast/j2n6s300_ikfast/include/**",
+        "/home/robotlab/catkin_ws/src/kinova-ros/kinova_moveit/inverse_kinematics_plugins/ikfast/j2s6s300_ikfast/include/**",
+        "/home/robotlab/catkin_ws/src/kinova-ros/kinova_moveit/inverse_kinematics_plugins/ikfast/j2s7s300_ikfast/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/joint_limits_interface/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/joint_state_controller/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/joint_trajectory_controller/include/**",
+        "/home/robotlab/catkin_ws/src/kinova-ros/kinova_moveit/kinova_arm_moveit_demo/include/**",
+        "/home/robotlab/catkin_ws/src/kinova-ros/kinova_driver/include/**",
+        "/home/robotlab/catkin_ws/src/kinova-ros/kinova_moveit/inverse_kinematics_plugins/ikfast/m1n6s300_ikfast/include/**",
+        "/home/robotlab/catkin_ws/src/perception_open3d/open3d_conversions/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/position_controllers/include/**",
+        "/home/robotlab/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/robotlab/catkin_ws/src/ros_control/transmission_interface/include/**",
+        "/home/robotlab/catkin_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/robotlab/catkin_ws/src/Universal_Robots_Client_Library/include/**",
+        "/home/robotlab/catkin_ws/src/Universal_Robots_ROS_Driver/ur_controllers/include/**",
+        "/home/robotlab/catkin_ws/src/universal_robot/ur_kinematics/include/**",
+        "/home/robotlab/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/home/robotlab/catkin_ws/src/usb_cam/include/**",
+        "/home/robotlab/catkin_ws/src/ros_controllers/velocity_controllers/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

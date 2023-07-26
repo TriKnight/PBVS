@@ -2,7 +2,7 @@
 <launch>
 
   <!--Robot description and related parameter files -->
-  <arg name="robot_description_file" default="$(dirname)/inc/load_ur10e.launch.xml" doc="Launch file which populates the 'robot_description' parameter."/>
+  <arg name="robot_description_file" default="$(dirname)/inc/load_ur10e_vel_control.launch.xml" doc="Launch file which populates the 'robot_description' parameter."/>
   <arg name="joint_limit_params" default="$(find ur_description)/config/ur10e/joint_limits.yaml"/>
   <arg name="kinematics_params" default="$(find ur_description)/config/ur10e/default_kinematics.yaml"/>
   <arg name="physical_params" default="$(find ur_description)/config/ur10e/physical_parameters.yaml"/>
@@ -10,9 +10,9 @@
 
   <!-- Controller configuration -->
   <arg name="controller_config_file" default="$(find ur_gazebo)/config/ur10e_controllers.yaml" doc="Config file used for defining the ROS-Control controllers."/>
-  <arg name="controllers" default="joint_state_controller vel_joint_traj_controller" doc="Controllers that are activated by default."/>
-  <arg name="stopped_controllers" default="joint_group_pos_controller" doc="Controllers that are initally loaded, but not started."/>
-
+  <arg name="controllers" default="joint_state_controller joint_group_vel_controller"/>
+  <arg name="stopped_controllers" default="joint_group_pos_controller"/>
+  
   <!-- robot_state_publisher configuration -->
   <arg name="tf_prefix" default="" doc="tf_prefix used for the robot."/>
   <arg name="tf_pub_rate" default="500" doc="Rate at which robot_state_publisher should publish transforms."/>
