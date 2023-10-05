@@ -1,8 +1,9 @@
-# DENSE_GRASP
+# Position-based visual servoing (PBVS) with dual 6-Degree of Freedom (DoF) UR10e robots
 
 [![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
+The research focuses on designing a system for position-based visual servoing (PBVS) with dual 6-Degree of Freedom (DoF) UR10e robots. The main robot uses computer vision integrated position-based servoing algorithm for tracking the ARTag trajectories from another robot by using Realsense D435 camera. The result of this algorithm is joint velocity control on the real UR10e robot, which helps the main robot simultaneously track the ARTag trajectories in real time.
 
 
 ## 1. PC Setup
