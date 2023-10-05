@@ -6,7 +6,7 @@
 The research focuses on designing a system for position-based visual servoing (PBVS) with dual 6-Degree of Freedom (DoF) UR10e robots. The main robot uses computer vision integrated position-based servoing algorithm for tracking the ARTag trajectories from another robot by using Realsense D435 camera. The result of this algorithm is joint velocity control on the real UR10e robot, which helps the main robot simultaneously track the ARTag trajectories in real time.
 
 [![Watch the video](https://github.com/TriKnight/TriKnight.github.io/blob/main/images/thumbs/PBVS_UR_play.png)](https://triknight.github.io/images/fulls/UR_dual.mp4)
-
+[Preprint](Position-based Visual Servoing with Dual Manipulators)
 ## 1. PC Setup
 ```
 https://github.com/UniversalRobots/Universal_Robots_ROS_Driver
